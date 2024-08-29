@@ -33,6 +33,25 @@ button {
     cursor: pointer;
 }
 
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    #team-name {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
 button:hover {
     background-color: #000000;
     color: #fff;

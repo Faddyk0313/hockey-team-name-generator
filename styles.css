@@ -8,19 +8,12 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100vh; /* Full height for centering */
+    height: 100%;
     background: none;
     background-size: 200% 200%;
     animation: backgroundAnimation 10s ease infinite;
     cursor: url('custom-cursor.png'), auto;
 }
-.tool-container {
-            width: 400px; /* Set width to match your tool */
-            max-width: 100%;
-            background: none;
-            margin: 0 auto;
-        }
-
 @keyframes backgroundAnimation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }

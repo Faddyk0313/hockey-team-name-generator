@@ -1,28 +1,28 @@
 const teamNames = {
     default: [
-        "Blizzard Kings", "Blizzard Bears", "Blizzard Knights", "Blizzard Blades", "Blizzard Storm", 
-        "Blizzard Riders", "Blizzard Smash", "Blizzard Warriors", "Blizzard Wolves", "Blizzard Crushers", 
-        "Glacier Giants", "Glacier Sabers", "Glacier Panthers", "Glacier Eagles", "Glacier Knights", 
-        "Glacier Guardians", "Glacier Mammoths", "Glacier Titans", "Glacier Crushers", "Glacier Dragons", 
-        "Rage Warriors", "Rage Sharks", "Rage Blades", "Rage Knights", "Rage Bulls", 
-        "Rage Lions", "Rage Sabers", "Rage Eagles", "Rage Hunters", "Rage Titans", 
-        "Frost Giants", "Frost Wolves", "Frost Panthers", "Frost Knights", "Frost Titans", 
+        "Blizzard Kings", "Blizzard Bears", "Blizzard Knights", "Blizzard Blades", "Blizzard Storm",
+        "Blizzard Riders", "Blizzard Smash", "Blizzard Warriors", "Blizzard Wolves", "Blizzard Crushers",
+        "Glacier Giants", "Glacier Sabers", "Glacier Panthers", "Glacier Eagles", "Glacier Knights",
+        "Glacier Guardians", "Glacier Mammoths", "Glacier Titans", "Glacier Crushers", "Glacier Dragons",
+        "Rage Warriors", "Rage Sharks", "Rage Blades", "Rage Knights", "Rage Bulls",
+        "Rage Lions", "Rage Sabers", "Rage Eagles", "Rage Hunters", "Rage Titans",
+        "Frost Giants", "Frost Wolves", "Frost Panthers", "Frost Knights", "Frost Titans",
         "Frost Eagles", "Frost Blades", "Frost Hunters", "Frost Warriors", "Frost Sabers"
     ],
     blizzard: [
-        "Blizzard Kings", "Blizzard Bears", "Blizzard Knights", "Blizzard Blades", "Blizzard Storm", 
+        "Blizzard Kings", "Blizzard Bears", "Blizzard Knights", "Blizzard Blades", "Blizzard Storm",
         "Blizzard Riders", "Blizzard Smash", "Blizzard Warriors", "Blizzard Wolves", "Blizzard Crushers"
     ],
     glacier: [
-        "Glacier Giants", "Glacier Sabers", "Glacier Panthers", "Glacier Eagles", "Glacier Knights", 
+        "Glacier Giants", "Glacier Sabers", "Glacier Panthers", "Glacier Eagles", "Glacier Knights",
         "Glacier Guardians", "Glacier Mammoths", "Glacier Titans", "Glacier Crushers", "Glacier Dragons"
     ],
     rage: [
-        "Rage Warriors", "Rage Sharks", "Rage Blades", "Rage Knights", "Rage Bulls", 
+        "Rage Warriors", "Rage Sharks", "Rage Blades", "Rage Knights", "Rage Bulls",
         "Rage Lions", "Rage Sabers", "Rage Eagles", "Rage Hunters", "Rage Titans"
     ],
     frost: [
-        "Frost Giants", "Frost Wolves", "Frost Panthers", "Frost Knights", "Frost Titans", 
+        "Frost Giants", "Frost Wolves", "Frost Panthers", "Frost Knights", "Frost Titans",
         "Frost Eagles", "Frost Blades", "Frost Hunters", "Frost Warriors", "Frost Sabers"
     ]
 };
@@ -74,6 +74,14 @@ generateBtn.addEventListener('click', () => {
     typeEffect(randomName);
 });
 
+function updateHeight() {
+    // Get the current height of the document inside the iframe
+    const height = document.body.offsetHeight;
+
+    // Send a message to the parent with the updated height
+    window.parent.postMessage({ type: 'height', height }, '*');
+}
+
 // Save favorite name when the "+" button is clicked
 saveBtn.addEventListener('click', () => {
     // Only save if typing is finished
@@ -88,6 +96,7 @@ saveBtn.addEventListener('click', () => {
             deleteBtn.onclick = () => li.remove();
             li.appendChild(deleteBtn);
             favoritesList.appendChild(li);
+            updateHeight();
         }
     } else {
         alert('Please wait for the name to finish typing before saving!');

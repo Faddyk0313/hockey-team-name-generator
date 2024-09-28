@@ -82,6 +82,10 @@ function updateHeight() {
     window.parent.postMessage({ type: 'height', height }, '*');
 }
 
+setInterval(() => {
+    updateHeight()
+}, 1000);
+
 // Save favorite name when the "+" button is clicked
 saveBtn.addEventListener('click', () => {
     // Only save if typing is finished
@@ -96,7 +100,6 @@ saveBtn.addEventListener('click', () => {
             deleteBtn.onclick = () => li.remove();
             li.appendChild(deleteBtn);
             favoritesList.appendChild(li);
-            updateHeight();
         }
     } else {
         alert('Please wait for the name to finish typing before saving!');

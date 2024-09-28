@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-body {
+*{
     font-family: 'Poppins', sans-serif;
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +43,6 @@ h1 {
     margin-bottom: 20px;
     color: #c8ff00;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-    white-space: nowrap;
     overflow: hidden;
     border-right: 2px solid #c8ff00;
     animation: blinkCursor 0.7s steps(40) infinite normal;

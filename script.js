@@ -35,6 +35,7 @@ const favoritesList = document.getElementById('favorites-list');
 const shareTwitter = document.getElementById('share-twitter');
 const shareFacebook = document.getElementById('share-facebook');
 const saveBtn = document.getElementById('save-btn');
+const noFavoritesText = document.getElementById('no-favorites');
 
 let typingInterval;
 let isTyping = false;
@@ -101,6 +102,17 @@ setInterval(() => {
     updateHeight()
 }, 1000);
 
+function updateNoFavoritesText() {
+    console.log(favoritesList.children.length > 1)
+    if (favoritesList.children.length > 1) { // More than one child means there are actual favorites added
+        noFavoritesText.style.display = 'none';
+    } else {
+        noFavoritesText.style.display = 'block';
+    }
+}
+
+updateNoFavoritesText();
+
 // Save favorite name when the "+" button is clicked
 saveBtn.addEventListener('click', () => {
     // Only save if typing is finished
@@ -112,9 +124,13 @@ saveBtn.addEventListener('click', () => {
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = 'Delete';
             deleteBtn.style.marginLeft = '10px';
-            deleteBtn.onclick = () => li.remove();
+            deleteBtn.onclick = () => {
+                li.remove();
+                updateNoFavoritesText(); // Update the visibility of "No favourites added" when an item is deleted
+            };
             li.appendChild(deleteBtn);
             favoritesList.appendChild(li);
+            updateNoFavoritesText();
         }
     } else {
         alert('Please wait for the name to finish typing before saving!');

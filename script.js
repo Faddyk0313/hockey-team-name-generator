@@ -74,6 +74,21 @@ generateBtn.addEventListener('click', () => {
     typeEffect(randomName);
 });
 
+function updateButtonText() {
+    const button = document.getElementById('generate-btn');
+    if (window.innerWidth < 500) {
+      button.textContent = 'Generate';
+    } else {
+      button.textContent = 'Generate Team Name';
+    }
+  }
+  
+  // Call the function initially
+  updateButtonText();
+  
+  // Add an event listener to handle window resizing
+  window.addEventListener('resize', updateButtonText);
+
 function updateHeight() {
     // Get the current height of the document inside the iframe
     const height = document.body.offsetHeight;

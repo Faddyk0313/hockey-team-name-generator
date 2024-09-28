@@ -197,8 +197,6 @@ svg:active::after {
 button.save-btn {
     border: none;
     border-radius: 8px; /* Make it circular */
-    background-color: #000 !important; /* Force black background */
-    color: #fff; /* White plus sign */
     font-size: 20px;
     width: 44px;
     height: 44px; /* Make it square to match height */
@@ -209,8 +207,14 @@ button.save-btn {
     justify-content: center;
 }
 
-button.save-btn:hover {
-    background-color: #333;
+button.save-btn {
+    /* background: #000 !important;
+    color: #c8ff00; */
+}
+
+#generate-btn {
+    background: #000 !important;
+    color: #c8ff00;
 }
 
 .label {
@@ -257,10 +261,15 @@ button.save-btn:hover {
 
     button.save-btn {
         padding: 0;
-        font-size: 14px;
+        font-size: 18px;
         width: 35px;
         height: 33px;
     }
+
+    #favorites-list li {
+        font-size: 14px;
+    }
+
 }
 
 @media (max-width: 350px) {
@@ -276,5 +285,9 @@ button.save-btn:hover {
     }
     #team-name {
         font-size: 24px;
+    }
+
+    #favorites-list li {
+        font-size: 12px;
     }
 }
